@@ -1,0 +1,15 @@
+.sale-export {
+    padding: 0.5em;
+}
+.sale-export_container {
+    max-width: 680px;
+}
+
+@media (min-width: 1024px) {
+    .sale-export_container {
+        max-width: 1024px;
+        display: grid;
+        grid-template: repeat(2, 1fr) / repeat(2, 1fr);
+        gap: 1em;
+    }
+}
