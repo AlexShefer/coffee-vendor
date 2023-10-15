@@ -1,6 +1,6 @@
 import { DataType } from "../types/data.type";
 
-export function getFormattedFirstDayOfCurrentMonth(): string {
+export const getFormattedFirstDayOfCurrentMonth = (): string => {
     const today: Date = new Date();
     const firstDay: Date = new Date(today.getFullYear(), today.getMonth(), 1);
     const formattedDate: string = `${String(firstDay.getDate()).padStart(
@@ -11,14 +11,14 @@ export function getFormattedFirstDayOfCurrentMonth(): string {
         "0"
     )}.${firstDay.getFullYear()}`;
     return formattedDate;
-}
-export function getCurrentDateFormatted(): string {
+};
+export const getCurrentDateFormatted = (): string => {
     const today: Date = new Date();
     const day: string = String(today.getDate()).padStart(2, "0");
     const month: string = String(today.getMonth() + 1).padStart(2, "0");
     const year: string = String(today.getFullYear());
     return `${day}.${month}.${year}`;
-}
+};
 
 export const filteredData = (
     start: string,
@@ -40,10 +40,10 @@ export const filteredData = (
         return itemDate >= startDate && itemDate <= endDate;
     });
 };
-export function countDays(
+export const countDays = (
     startDateString: string,
     finishDateString: string
-): number {
+): number => {
     const startDateParts: string[] = startDateString.split(".");
     const finishDateParts: string[] = finishDateString.split(".");
 
@@ -66,9 +66,9 @@ export function countDays(
     );
 
     return diffDays + 1;
-}
+};
 
-export function changeDateFormat(inputDate: string): string {
+export const changeDateFormat = (inputDate: string): string => {
     const parts: string[] = inputDate.split("-");
     if (parts.length !== 3) {
         // Invalid date format
@@ -76,7 +76,7 @@ export function changeDateFormat(inputDate: string): string {
     }
     const [year, month, day] = parts;
     return `${day}.${month}.${year}`;
-}
+};
 
 export const countCoffeeMachines = (data: DataType[]): number => {
     const uniqueSKUs: Set<number> = new Set();
@@ -86,4 +86,60 @@ export const countCoffeeMachines = (data: DataType[]): number => {
         }
     });
     return uniqueSKUs.size;
+};
+export const countIngredientSpent = (
+    arr: DataType[],
+    ingredientName: string,
+    measurementSystem: string
+): number => {
+    let totalSpent = 0;
+
+    for (let i = 0; i < arr.length; i++) {
+        const currentRecipe = arr[i].Recipe;
+
+        if (currentRecipe) {
+            const ingredientValue =
+                currentRecipe[ingredientName as keyof typeof currentRecipe];
+
+            if (typeof ingredientValue === "number") {
+                if (isBulkIngredient(ingredientName)) {
+                    totalSpent += convertBulkIngredient(
+                        ingredientValue,
+                        measurementSystem
+                    );
+                } else if (isLiquidIngredient(ingredientName)) {
+                    totalSpent += convertLiquidIngredient(
+                        ingredientValue,
+                        measurementSystem
+                    );
+                }
+            }
+        }
+    }
+
+    return Number(totalSpent.toFixed(2));
+};
+
+export const isBulkIngredient = (ingredientName: string): boolean => {
+    const bulkIngredients = ["coffee", "syrup", "sugar"];
+    return bulkIngredients.includes(ingredientName);
+};
+
+const isLiquidIngredient = (ingredientName: string): boolean => {
+    const liquidIngredients = ["milk", "water"];
+    return liquidIngredients.includes(ingredientName);
+};
+
+const convertBulkIngredient = (value: number, system: string): number => {
+    if (system === "us") {
+        return (value * 2.205) / 1000; // Convert kilograms to pounds for the US system
+    }
+    return value / 1000;
+};
+
+const convertLiquidIngredient = (value: number, system: string): number => {
+    if (system === "us") {
+        return (value * 0.264172) / 1000; // Convert liters to gallons for the US system
+    }
+    return value / 1000;
 };
