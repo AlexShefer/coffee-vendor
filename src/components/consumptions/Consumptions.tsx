@@ -1,4 +1,3 @@
-import { countIngredientSpent } from "../../utils/helperFunctions";
 import { ConsumptionCard } from "../consconsumtion-card/ConsumptionCard";
 import { DataType } from "../../types/data.type";
 import {
