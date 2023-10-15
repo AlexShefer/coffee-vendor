@@ -12,6 +12,8 @@ export type DataType = {
         milk?: number;
         coffee: number;
         cupSize: string;
+        syrup?: number;
+        sugar?: number;
     };
     CupSize: string;
     Status: string;
