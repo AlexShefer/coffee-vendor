@@ -1,0 +1,38 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --font-color: #000000;
+    --main-background: #ffffff;
+    --tab-switcher: #8a8a8a;
+    --table-text-size: 0.75rem;
+    --header-text-size: 1.5rem;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    color: var(--font-color);
+}
+
+button:hover {
+    color: white;
+    background-color: var(--tab-switcher);
+}
+button:disabled {
+}
+
+.app {
+    min-height: 100vh;
+    background: var(--main-background);
+}
+
+.overflow-hidden {
+    overflow: hidden;
+}
