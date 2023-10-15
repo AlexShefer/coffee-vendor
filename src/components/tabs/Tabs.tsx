@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Table } from "../table/Table";
 import { Modal } from "../modal/Modal";
+import { SaleExport } from "../sale-export/SaleExport";
 import MOCK_DATA from "../../data/data.json";
 import { GrUpdate } from "react-icons/gr";
 import { BiCoffeeTogo } from "react-icons/bi";
@@ -93,7 +94,7 @@ export const Tabs = () => {
                             : { display: "none" }
                     }
                 >
-                    first tab
+                    <SaleExport tableData={tableData} days={numberOfDays} />
                 </div>
                 <div
                     style={

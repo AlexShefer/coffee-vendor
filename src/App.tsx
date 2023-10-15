@@ -1,13 +1,11 @@
-import { Tabs } from "./components/Tabs";
+import { Tabs } from "./components/tabs/Tabs";
 import { Dashboard } from "./components/dashboard/Dashboard";
 import { Table } from "./components/table/Table";
 
 function App() {
     return (
-        <div>
+        <div className="app">
             <Tabs />
-            <Table />
-            <Dashboard />
         </div>
     );
 }
