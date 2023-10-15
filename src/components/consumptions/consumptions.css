@@ -1,0 +1,50 @@
+.consumptions {
+    width: 100%;
+    border: 1px solid #000000;
+    border-radius: 20px;
+    overflow: hidden;
+    padding: 0.5em;
+    grid-template-columns: repeat(1, fr);
+    margin-bottom: 1em;
+}
+.consumptions__headline {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1em;
+}
+
+.consumptions__title {
+    /* your styles here */
+}
+
+.consumptions__button {
+    margin: 0 0.5em;
+    padding: 0.5em 1em;
+    border-radius: 0.5em;
+    outline: none;
+    border: none;
+}
+
+.consumptions__grid {
+    display: grid;
+    grid-template: repeat(3, 1fr) / repeat(2, 1fr);
+    gap: 1em;
+}
+
+.consumptions__icon {
+    /* your styles here */
+}
+
+.consumptions__note {
+    border: 1px solid #000000;
+    border-radius: 1em;
+    padding: 0.5em 1em 0.5em 3em;
+    font-size: 0.75rem;
+}
+
+@media (min-width: 680px) {
+    .consumptions__grid {
+        grid-template: repeat(2, 1fr) / repeat(3, 1fr);
+    }
+}

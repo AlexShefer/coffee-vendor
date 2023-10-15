@@ -1,0 +1,24 @@
+.consumption-card {
+    position: relative;
+    border: 1px solid #000000;
+    border-radius: 1em;
+    padding: 0.5em 1em 0.5em 3em;
+}
+.consumption-card__icon {
+    position: absolute;
+    top: 0.5em;
+    left: 0.5em;
+}
+.consumption-card__icon > *:first-child {
+    font-size: 1.5rem;
+}
+.consumption-card__amount {
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+}
+.consumption-card__description {
+}
+.consumption-card__duration {
+    font-weight: 600;
+}
