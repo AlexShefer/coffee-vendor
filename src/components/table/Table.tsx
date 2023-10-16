@@ -1,12 +1,6 @@
 import { useMemo } from "react";
-import {
-    useTable,
-    useSortBy,
-    useGlobalFilter,
-    TableInstance,
-} from "react-table";
-import { GlobalFilter } from "./GlobalFiltering";
-import { COLUMNS, YourDataItemType } from "./columns";
+import { useTable, useSortBy, useGlobalFilter } from "react-table";
+import { COLUMNS } from "./columns";
 import { DataType } from "../../types/data.type";
 import "./table.css";
 
@@ -21,8 +15,6 @@ export const Table = ({ tableData }: TableProp) => {
         getTableBodyProps,
         headerGroups,
         rows,
-        state,
-        setGlobalFilter,
         prepareRow,
     }: any = useTable(
         {
@@ -33,7 +25,6 @@ export const Table = ({ tableData }: TableProp) => {
         useGlobalFilter,
         useSortBy
     );
-    const { globalFilter } = state;
 
     return (
         <>
