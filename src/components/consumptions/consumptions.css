@@ -1,11 +1,12 @@
 .consumptions {
     width: 100%;
     border: 1px solid #000000;
-    border-radius: 20px;
+    border-radius: 0.5em;
     overflow: hidden;
     padding: 0.5em;
     grid-template-columns: repeat(1, fr);
     margin-bottom: 1em;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.5);
 }
 .consumptions__headline {
     display: flex;
@@ -34,10 +35,11 @@
 
 .consumptions__note {
     border: 1px solid #000000;
-    border-radius: 1em;
+    border-radius: 0.5em;
     padding: 1.5em 1em 0.5em 3em;
     font-size: 0.75rem;
     display: flex;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.5);
 }
 
 @media (min-width: 680px) {
