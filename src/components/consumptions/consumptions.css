@@ -32,15 +32,12 @@
     gap: 1em;
 }
 
-.consumptions__icon {
-    /* your styles here */
-}
-
 .consumptions__note {
     border: 1px solid #000000;
     border-radius: 1em;
-    padding: 0.5em 1em 0.5em 3em;
+    padding: 1.5em 1em 0.5em 3em;
     font-size: 0.75rem;
+    display: flex;
 }
 
 @media (min-width: 680px) {

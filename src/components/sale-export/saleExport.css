@@ -7,7 +7,7 @@
 
 @media (min-width: 1024px) {
     .sale-export_container {
-        max-width: 1024px;
+        max-width: 1240px;
         display: grid;
         grid-template: repeat(2, 1fr) / repeat(2, 1fr);
         gap: 1em;

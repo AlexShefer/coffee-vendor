@@ -18,6 +18,7 @@
     text-align: center;
 }
 .consumption-card__description {
+    font-size: 0.9rem;
 }
 .consumption-card__duration {
     font-weight: 600;

@@ -60,7 +60,7 @@ export const Consumptions = ({ tableData, days }: ConsumptionsProp) => {
                     ingredientName="water"
                     measuringSystem={measuringSystem}
                 >
-                    <GiWaterDrop className="consumptions__icon" />
+                    <GiWaterDrop />
                 </ConsumptionCard>
                 <ConsumptionCard
                     days={days}
@@ -68,7 +68,7 @@ export const Consumptions = ({ tableData, days }: ConsumptionsProp) => {
                     ingredientName="coffee"
                     measuringSystem={measuringSystem}
                 >
-                    <GiCoffeeBeans className="consumptions__icon" />
+                    <GiCoffeeBeans />
                 </ConsumptionCard>
                 <ConsumptionCard
                     days={days}
@@ -76,7 +76,7 @@ export const Consumptions = ({ tableData, days }: ConsumptionsProp) => {
                     ingredientName="milk"
                     measuringSystem={measuringSystem}
                 >
-                    <LuMilk className="consumptions__icon" />
+                    <LuMilk />
                 </ConsumptionCard>
                 <ConsumptionCard
                     days={days}
@@ -84,7 +84,7 @@ export const Consumptions = ({ tableData, days }: ConsumptionsProp) => {
                     ingredientName="syrup"
                     measuringSystem={measuringSystem}
                 >
-                    <GiWaterBottle className="consumptions__icon" />
+                    <GiWaterBottle />
                 </ConsumptionCard>
                 <ConsumptionCard
                     days={days}
@@ -92,7 +92,7 @@ export const Consumptions = ({ tableData, days }: ConsumptionsProp) => {
                     ingredientName="sugar"
                     measuringSystem={measuringSystem}
                 >
-                    <GiPowderBag className="consumptions__icon" />
+                    <GiPowderBag />
                 </ConsumptionCard>
                 <div className="consumptions__note">
                     <p>
