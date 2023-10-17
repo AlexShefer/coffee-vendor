@@ -33,8 +33,15 @@ export const filteredData = (
         return new Date(year, month, day);
     };
 
+    const adjustEndDate = (date: Date) => {
+        const adjustedDate = new Date(date);
+        adjustedDate.setHours(23, 59, 59, 999); // Set time to end of the day
+        return adjustedDate;
+    };
+
     const startDate = parseDate(start);
-    const endDate = parseDate(finish);
+    const endDate = adjustEndDate(parseDate(finish));
+
     return data.filter((item) => {
         const itemDate = new Date(item.Date);
         return itemDate >= startDate && itemDate <= endDate;
