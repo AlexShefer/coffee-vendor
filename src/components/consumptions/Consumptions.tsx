@@ -20,7 +20,6 @@ export const Consumptions = ({ tableData, days }: ConsumptionsProp) => {
             setMeasuringSystem("metric");
         }
     };
-    console.log(measuringSystem);
     return (
         <div className="consumptions">
             <div className="consumptions__headline">
