@@ -98,7 +98,6 @@ export const Modal: React.FC<ModalProps> = ({
                                     name="to"
                                     value={value.to}
                                     onChange={(e) => handleInputChange(e)}
-                                    git
                                     id="to"
                                     min="2023-01-01"
                                     max="2023-12-31"
