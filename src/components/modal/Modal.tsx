@@ -30,7 +30,7 @@ export const Modal: React.FC<ModalProps> = ({
     updateFilter,
 }) => {
     const [modalHeader, setModalHeader] = useState(
-        "Выберите период времени для анализа данных:"
+        "Select a time period for data analysis"
     );
     useEffect(() => {
         document.body.classList.add("overflow-hidden");
