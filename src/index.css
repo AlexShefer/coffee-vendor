@@ -22,12 +22,12 @@ body {
     font-family: "Roboto", sans-serif;
     color: var(--font-color);
 }
-
+button {
+    cursor: pointer;
+}
 button:hover {
     color: white;
     background-color: var(--tab-switcher);
-}
-button:disabled {
 }
 
 .app {
