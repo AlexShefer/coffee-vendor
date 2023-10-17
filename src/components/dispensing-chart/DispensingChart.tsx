@@ -17,7 +17,6 @@ type DispensingChartProps = {
 };
 
 export const DispensingChart = ({ data }: DispensingChartProps) => {
-    console.log(data);
     const svgRef = useRef<SVGSVGElement>(null);
 
     useEffect(() => {
