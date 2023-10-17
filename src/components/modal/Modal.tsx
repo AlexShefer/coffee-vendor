@@ -82,7 +82,7 @@ export const Modal: React.FC<ModalProps> = ({
                                 {modalHeader}
                             </h3>
                             <div className="modal__body__input-group">
-                                <label htmlFor="from">Начиная с:</label>
+                                <label htmlFor="from">From:</label>
                                 <input
                                     type="date"
                                     name="from"
@@ -92,12 +92,13 @@ export const Modal: React.FC<ModalProps> = ({
                                     min="2023-01-01"
                                     max="2023-12-31"
                                 />
-                                <label htmlFor="to">До:</label>
+                                <label htmlFor="to">To:</label>
                                 <input
                                     type="date"
                                     name="to"
                                     value={value.to}
                                     onChange={(e) => handleInputChange(e)}
+                                    git
                                     id="to"
                                     min="2023-01-01"
                                     max="2023-12-31"
