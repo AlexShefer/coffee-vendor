@@ -143,3 +143,7 @@ const convertLiquidIngredient = (value: number, system: string): number => {
     }
     return value / 1000;
 };
+
+export const sumDispensing = (data: DataType[]): number => {
+    return data.reduce((acc, curr) => acc + curr.SummedDispensing, 0);
+};
