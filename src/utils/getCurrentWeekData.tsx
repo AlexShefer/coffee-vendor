@@ -15,7 +15,8 @@ export const getDatesForWeek = (
 
     const getWeekDates = (date: Date) => {
         const day = date.getDay(); // 0 (Sunday) to 6 (Saturday)
-        const diff = date.getDate() - day + (weekType === "previous" ? -7 : 0); // Adjust the difference for the previous week
+        const diff =
+            date.getDate() - day + 1 + (weekType === "previous" ? -7 : 0);
         const weekStart = new Date(date.setDate(diff));
 
         for (let i = 0; i < 7; i++) {
@@ -71,6 +72,8 @@ const getWeekData = (
         currentWeek[6].Saturday,
         data
     );
+    console.log(prevWeek[0].Sunday);
+    console.log(currentWeek[6].Saturday);
 
     const SummedDispensing: DayData[] = [
         {

@@ -17,6 +17,7 @@ type DispensingChartProps = {
 };
 
 export const DispensingChart = ({ data }: DispensingChartProps) => {
+    console.log(data);
     const svgRef = useRef<SVGSVGElement>(null);
 
     useEffect(() => {
@@ -63,7 +64,7 @@ export const DispensingChart = ({ data }: DispensingChartProps) => {
             .enter()
             .append("rect")
             .attr("class", "bar")
-            .attr("x", (d) => x(d.day)! || 0) // Using '!' to assert that x(d.day) is not null or undefined
+            .attr("x", (d) => x(d.day)! || 0)
             .attr("y", (d) => y(d.SummedDispensingCurrent))
             .attr("height", (d) => height - y(d.SummedDispensingCurrent))
             .attr("width", x.bandwidth() / 2)
