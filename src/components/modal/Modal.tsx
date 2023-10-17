@@ -53,7 +53,7 @@ export const Modal: React.FC<ModalProps> = ({
             const toDate = new Date(value.to);
             if (fromDate > toDate) {
                 setModalHeader(
-                    "Ошибка ввода данных. Дата начала должна быть раньше даты окончания."
+                    "Data entry error. The start date must be earlier than the end date. Please try again."
                 );
                 return;
             }
@@ -66,7 +66,7 @@ export const Modal: React.FC<ModalProps> = ({
             onClose();
         } else {
             setModalHeader(
-                "Ошибка ввода данных. Оба поля должны быть заполнены."
+                "Data entry error. Both fields must be filled in. Please ty again"
             );
         }
     };

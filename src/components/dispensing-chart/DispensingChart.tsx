@@ -27,7 +27,6 @@ export const DispensingChart = ({ data }: DispensingChartProps) => {
         const margin = { top: 20, right: 0, bottom: 30, left: 20 };
         const width = 600;
         const height = 400;
-
         const x = d3
             .scaleBand()
             .domain(data[0].dayData.map((d) => d.day))
@@ -58,7 +57,7 @@ export const DispensingChart = ({ data }: DispensingChartProps) => {
             .data(data)
             .enter()
             .append("g")
-            .attr("transform", (d) => `translate(${x(d.week)}, 0)`)
+            .attr("transform", (d) => `translate(${x(d.week) || 0}, 0)`)
             .selectAll(".bar")
             .data((d) => d.dayData)
             .enter()
@@ -69,13 +68,6 @@ export const DispensingChart = ({ data }: DispensingChartProps) => {
             .attr("height", (d) => height - y(d.SummedDispensingCurrent))
             .attr("width", x.bandwidth() / 2)
             .attr("fill", "steelblue");
-        // .each(function (d) {
-        //     svg.append("text")
-        //         .attr("class", "bar-value")
-        //         .attr("x", x(d.day)! || 0) // Using '!' to assert that x(d.day) is not null or undefined
-        //         .attr("y", y(d.SummedDispensingCurrent) - 5)
-        //         .text(d.SummedDispensingCurrent);
-        // });
 
         svg.selectAll("g")
             .data(data)
@@ -89,13 +81,6 @@ export const DispensingChart = ({ data }: DispensingChartProps) => {
             .attr("height", (d) => height - y(d.SummedDispensingPrevious))
             .attr("width", x.bandwidth() / 2)
             .attr("fill", "orange");
-        // .each(function (d) {
-        //     svg.append("text")
-        //         .attr("class", "bar-value")
-        //         .attr("x", (x(d.day) || 0) + x.bandwidth() / 2) // Using '|| 0' to handle the case where x(d.day) is undefined
-        //         .attr("y", y(d.SummedDispensingPrevious) - 5)
-        //         .text(d.SummedDispensingPrevious);
-        // });
 
         svg.append("g")
             .attr("transform", `translate( 0, ${height})`)

@@ -112,21 +112,11 @@ const getWeekData = (
 
     lastTwoWeekData.forEach((item) => {
         const itemDate = new Date(item.Date);
-        console.log("itemDate", itemDate);
-        console.log("item.Date", item.Date);
         const dayIndex = itemDate.getDay();
-        console.log("dayIndex", dayIndex);
         const dayName = getDayName(dayIndex);
-        console.log("dayName", dayName);
         const index = SummedDispensing.findIndex(
             (element) => element.day === dayName
         );
-        console.log("index", index);
-        console.log(
-            "new Date(currentWeek[0].Monday)",
-            new Date(currentWeek[0].Monday)
-        );
-        console.log(itemDate < new Date(currentWeek[0].Sunday));
         if (index !== -1) {
             if (itemDate < new Date(currentWeek[0].Sunday)) {
                 SummedDispensing[index].SummedDispensingPrevious +=
@@ -168,4 +158,46 @@ export const calculateTotalDispensing = (
     }
 
     return { sumDispensingPrevWeek, sumDispensingCurrentWeek };
+};
+
+export const calculateTotalCleaning = (
+    data: DataType[]
+): { prevWeekCleaning: number; currWeekCleaning: number } => {
+    const prevWeek = getDatesForWeek("previous");
+    const currentWeek = getDatesForWeek("current");
+    const lastTwoWeekData = filterDataByDate(
+        prevWeek[0].Sunday,
+        currentWeek[6].Saturday,
+        data
+    );
+    let successPrevWeek = 0;
+    let failPrevWeek = 0;
+    let successCurrWeek = 0;
+    let failCurrWeek = 0;
+
+    for (const day of lastTwoWeekData) {
+        const date = new Date(day.Date);
+        if (date < new Date(currentWeek[0].Sunday)) {
+            if (day.Status === "success") {
+                successPrevWeek += 1;
+            } else {
+                failPrevWeek += 1;
+            }
+        } else {
+            if (day.Status === "success") {
+                successCurrWeek += 1;
+            } else {
+                failCurrWeek += 1;
+            }
+        }
+    }
+
+    const prevWeekCleaning = parseFloat(
+        (successPrevWeek / (successPrevWeek + failPrevWeek)).toFixed(2)
+    );
+    const currWeekCleaning = parseFloat(
+        (successCurrWeek / (successCurrWeek + failCurrWeek)).toFixed(2)
+    );
+
+    return { prevWeekCleaning, currWeekCleaning };
 };

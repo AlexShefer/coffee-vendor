@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import { useTable, useSortBy, useGlobalFilter } from "react-table";
+import { BiSortAlt2, BiSortDown, BiSortUp } from "react-icons/bi";
 import { COLUMNS } from "./columns";
 import { DataType } from "../../types/data.type";
 import "./table.css";
@@ -40,11 +41,15 @@ export const Table = ({ tableData }: TableProp) => {
                                 >
                                     {column.render("Header")}
                                     <span>
-                                        {column.isSorted
-                                            ? column.isSortedDesc
-                                                ? " 🔼 "
-                                                : " 🔽 "
-                                            : "🔀"}
+                                        {column.isSorted ? (
+                                            column.isSortedDesc ? (
+                                                <BiSortUp />
+                                            ) : (
+                                                <BiSortDown />
+                                            )
+                                        ) : (
+                                            <BiSortAlt2 />
+                                        )}
                                     </span>
                                 </th>
                             ))}

@@ -16,6 +16,8 @@
 
 .dispensing-by-hierarchy__summary {
     display: flex;
+    border: 1px solid #000000;
+    border-radius: 0.5em;
     gap: 1em;
     margin-top: 0.5em;
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.5);
