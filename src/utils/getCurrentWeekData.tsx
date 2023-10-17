@@ -72,8 +72,6 @@ const getWeekData = (
         currentWeek[6].Saturday,
         data
     );
-    console.log(prevWeek[0].Sunday);
-    console.log(currentWeek[6].Saturday);
 
     const SummedDispensing: DayData[] = [
         {
